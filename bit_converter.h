@@ -1,7 +1,8 @@
 #pragma once
 
+#include <cstring>
 #include <vector>
-   
+
 class BitConverter {
 public:
     template <typename T> static std::vector<char> get_bytes(T value)
