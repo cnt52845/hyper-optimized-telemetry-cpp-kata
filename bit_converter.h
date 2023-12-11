@@ -5,7 +5,7 @@
 
 class BitConverter {
 public:
-    template <typename T> static std::vector<char> get_bytes(T value)
+    template <typename T, typename U> static std::vector<char> get_bytes(U value)
     {
         std::vector<char> bytes(sizeof(T));
         std::memcpy(bytes.data(), &value, sizeof(T));
