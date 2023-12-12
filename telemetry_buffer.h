@@ -4,14 +4,16 @@
 
 class TelemetryBuffer {
 public:
-    static std::vector<char> to_buffer(long reading)
+    static std::vector<unsigned char> to_buffer(long reading)
     {
-        auto result        = std::vector<char>{0x2};
-        auto reading_bytes = BitConverter::get_bytes<unsigned short>(reading);
-        result.insert(result.end(), reading_bytes.begin(), reading_bytes.end());
-        for (int i = 0; i < 6; i++)
-            result.push_back(0x0);
+        auto buffer = std::vector<unsigned char>{0x02};
 
-        return result;
+        auto reading_bytes = BitConverter::uint16_to_bytes(reading);
+        buffer.insert(buffer.end(), reading_bytes.begin(), reading_bytes.end());
+
+        for (int i = 0; i < 6; i++)
+            buffer.push_back(0x00);
+
+        return buffer;
     }
 };
