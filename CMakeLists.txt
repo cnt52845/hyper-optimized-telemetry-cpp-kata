@@ -15,7 +15,7 @@ foreach(test ${tests})
     get_filename_component(name ${test} NAME_WE)
     add_executable(${name} ${test})
     add_test(${name} ${name})
-    target_link_libraries(${name} PRIVATE GTest::gmock GTest::gmock_main)
+    target_link_libraries(${name} PRIVATE GTest::gmock_main)
 endforeach()
 
 add_custom_target(  
