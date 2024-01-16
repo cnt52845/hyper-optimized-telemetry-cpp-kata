@@ -52,11 +52,11 @@ taking an integer value passed to the method.
 
 ```cpp
 // Type: unsigned short, bytes: 2, signed: no, prefix byte: 2
-TelemetryBuffer.to_buffer(5);
+TelemetryBuffer::to_buffer(5);
 // => [0x2, 0x5, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0]
 
 // Type: int, bytes: 4, signed: yes, prefix byte: 256 - 4
-TelemetryBuffer.to_buffer(2'147'483'647);
+TelemetryBuffer::to_buffer(2'147'483'647);
 // => [0xfc, 0xff, 0xff, 0xff, 0x7f, 0x0, 0x0, 0x0, 0x0]
 ```
 
@@ -71,7 +71,7 @@ Implement the static method `TelemetryBuffer.from_buffer()` to decode the
 buffer received, and return the value in the form of an integer.
 
 ```cpp
-TelemetryBuffer.from_buffer([0xfc, 0xff, 0xff, 0xff, 0x7f, 0x0, 0x0, 0x0, 0x0])
+TelemetryBuffer::from_buffer([0xfc, 0xff, 0xff, 0xff, 0x7f, 0x0, 0x0, 0x0, 0x0])
 // => 2'147'483'647
 ```
 
