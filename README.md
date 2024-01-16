@@ -26,13 +26,13 @@ trivial):
 
 | From                       | To                        | Type             |
 |:---------------------------|:------------------------- |:-----------------|
-| 4_294_967_296              | 9_223_372_036_854_775_807 | `long`           |
-| 2_147_483_648              | 4_294_967_295             | `unsigned int`   |
-| 65_536                     | 2_147_483_647             | `int`            |
-| 0                          | 65_535                    | `unsigned short` |
-| -32_768                    | -1                        | `short`          |
-| -2_147_483_648             | -32_769                   | `int`            |
-| -9_223_372_036_854_775_808 | -2_147_483_649            | `long`           |
+| 4'294'967'296              | 9'223'372'036'854'775'807 | `long`           |
+| 2'147'483'648              | 4'294'967'295             | `unsigned int`   |
+| 65'536                     | 2'147'483'647             | `int`            |
+| 0                          | 65'535                    | `unsigned short` |
+| -32'768                    | -1                        | `short`          |
+| -2'147'483'648             | -32'769                   | `int`            |
+| -9'223'372'036'854'775'808 | -2'147'483'649            | `long`           |
 
 The value should be converted to the appropriate number of bytes for its
 assigned type. The complete internal 9-byte buffer comprises three parts:
@@ -56,7 +56,7 @@ TelemetryBuffer.to_buffer(5);
 // => [0x2, 0x5, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0]
 
 // Type: int, bytes: 4, signed: yes, prefix byte: 256 - 4
-TelemetryBuffer.to_buffer(2_147_483_647);
+TelemetryBuffer.to_buffer(2'147'483'647);
 // => [0xfc, 0xff, 0xff, 0xff, 0x7f, 0x0, 0x0, 0x0, 0x0]
 ```
 
@@ -72,7 +72,7 @@ buffer received, and return the value in the form of an integer.
 
 ```cpp
 TelemetryBuffer.from_buffer([0xfc, 0xff, 0xff, 0xff, 0x7f, 0x0, 0x0, 0x0, 0x0])
-// => 2_147_483_647
+// => 2'147'483'647
 ```
 
 If the prefix byte is of unexpected value, then return `0`.
@@ -87,16 +87,16 @@ The C language provides a number of types that represent integers, each with
 its own range of values. The ranges are determined by the storage width of the
 type as allocated by the system:
 
-| Type           | Width  | Minimum                    | Maximum                     |
-|:---------------|:-------|:---------------------------|:--------------------------- |
-| char           | 8 bit  | -128                       | +127                        |
-| short          | 16 bit | -32_768                    | +32_767                     |
-| int            | 32 bit | -2_147_483_648             | +2_147_483_647              |
-| long           | 64 bit | -9_223_372_036_854_775_808 | +9_223_372_036_854_775_807  |
-| unsigned char  | 8 bit  | 0                          | +255                        |
-| unsigned short | 16 bit | 0                          | +65_535                     |
-| unsigned int   | 32 bit | 0                          | +4_294_967_295              |
-| unsigned long  | 64 bit | 0                          | +18_446_744_073_709_551_615 |
+| Type             | Width  | Minimum                    | Maximum                     |
+|:-----------------|:-------|:---------------------------|:--------------------------- |
+| `char`           | 8 bit  | -128                       | +127                        |
+| `short`          | 16 bit | -32'768                    | +32'767                     |
+| `int`            | 32 bit | -2'147'483'648             | +2'147'483'647              |
+| `long`           | 64 bit | -9'223'372'036'854'775'808 | +9'223'372'036'854'775'807  |
+| `unsigned char`  | 8 bit  | 0                          | +255                        |
+| `unsigned short` | 16 bit | 0                          | +65'535                     |
+| `unsigned int`   | 32 bit | 0                          | +4'294'967'295              |
+| `unsigned long`  | 64 bit | 0                          | +18'446'744'073'709'551'615 |
 
 ## Usage
 
