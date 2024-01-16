@@ -60,7 +60,7 @@ TelemetryBuffer.to_buffer(2_147_483_647);
 // => [0xfc, 0xff, 0xff, 0xff, 0x7f, 0x0, 0x0, 0x0, 0x0]
 ```
 
-> *Hint*
+> **Hint**
 >
 > The `BitConverter` class provides a convenient way of converting integer
 > types to and from arrays of bytes.
