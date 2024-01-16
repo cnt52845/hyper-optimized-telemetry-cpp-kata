@@ -71,7 +71,7 @@ Implement the static method `TelemetryBuffer.from_buffer()` to decode the
 buffer received, and return the value in the form of an integer.
 
 ```cpp
-TelemetryBuffer::from_buffer({0xfc, 0xff, 0xff, 0xff, 0x7f, 0x0, 0x0, 0x0, 0x0})
+TelemetryBuffer::from_buffer({0xfc, 0xff, 0xff, 0xff, 0x7f, 0x0, 0x0, 0x0, 0x0});
 // => 2'147'483'647
 ```
 
